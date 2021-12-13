@@ -1,12 +1,15 @@
 <img src="https://media.giphy.com/media/LdaTvECy4WT8rpFE38/giphy.gif">
 
-# Project Title
+# The ToDo-project
 
 Text about the project and why it exists. This would also be a great place to link the project online.
 
 # Installation
 
-Add the installation instructions.
+1. You can clone this repo and open it with your favourite code-editor.
+2. Open a localhost in your terminal by writing: php -S localhost:8000
+3. Visit the localhost in your browser.
+4. Enjoy!
 
 # Code Review
 
