@@ -6,5 +6,5 @@ declare(strict_types=1);
 
 return [
     'title' => 'ToDo',
-    'database_path' => sprintf('sqlite:%s/database/datalist.db', __DIR__),
+    'database_path' => sprintf('sqlite:%s/database/database.db', __DIR__),
 ];

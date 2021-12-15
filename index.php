@@ -1,19 +1,17 @@
-<?php
-require __DIR__ . '/app/autoload.php';
-require __DIR__ . '/views/header.php';
-
-$message = $_SESSION['message'] ?? '';
-unset($_SESSION['message']);
-
-?>
+<?php require __DIR__ . '/app/autoload.php'; ?>
+<?php require __DIR__ . '/views/header.php'; ?>
 
 <article>
-    <?php if ($message !== '') : ?>
-        <p><?php echo $message; ?></p>
-    <?php endif; ?>
-
     <h1><?php echo $config['title']; ?></h1>
-    <p>This is the home page.</p>
+    <p>Welcome to this Todo-app! <br>
+        Login or creat an account to get started.
+        Enjoy!
+
+    </p>
+
+    <?php if (isset($_SESSION['user'])) : ?>
+        <p>Welcome, <?php echo $_SESSION['user']['name']; ?>!</p>
+    <?php endif; ?>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

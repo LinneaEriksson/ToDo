@@ -1,3 +1,4 @@
+<?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <article>
@@ -7,7 +8,7 @@
         <div class="mb-3">
             <label for="email">Email</label>
             <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
-            <small class="form-text">Please provide your email address.</small>
+            <small class="form-text">Please provide the your email address.</small>
         </div>
 
         <div class="mb-3">
@@ -18,6 +19,12 @@
 
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
-</article>
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+    <!-- För att komma vidare till sign up -->
+    <p> You don't have an account yet? </p>
+    <form method="get" action="/signup.php">
+        <button type="submit" class="btn btn-primary">Sign up here!</button>
+    </form>
+
+
+    <?php require __DIR__ . '/views/footer.php'; ?>
