@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we register a new user.
+// DOWN FROM HERE IS FOR THE PICTURE!!
 
 
 $date = date("y-m-d");
@@ -35,6 +35,20 @@ foreach ($errors as $error) : ?>
 
 <?php if (isset($message)) : ?>
   <p class="success"><?php echo $message; ?></p>
-<?php endif; 
+<?php endif;
+
+// DOWN FROM HERE IS FOR THE REST 
+
+
+if (isset($_POST['username'])) {
+  $username = trim($_POST['username']);
+
+
+  $database = new PDO('sqlite:database.db');
+
+  $database->exec("INSERT INTO users (username) VALUES ('$username')");
+}
+
+
 
 // redirect('/');
