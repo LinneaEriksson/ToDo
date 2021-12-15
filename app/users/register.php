@@ -42,11 +42,14 @@ foreach ($errors as $error) : ?>
 
 if (isset($_POST['username'])) {
   $username = trim($_POST['username']);
+  $email = $_POST['email'];
+  $imgurl = $_FILES['avatar'];
+  $password = $_POST['password'];
 
 
   $database = new PDO('sqlite:database.db');
 
-  $database->exec("INSERT INTO users (username) VALUES ('$username')");
+  $database->exec("INSERT INTO users (username, email, img_url, password) VALUES ('$username', '$email','$imgurl', '$password')");
 }
 
 
