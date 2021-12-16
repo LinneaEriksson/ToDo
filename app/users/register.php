@@ -47,8 +47,9 @@ if (isset($_POST['username'])) {
   $password = $_POST['password'];
 
 
-  $database = new PDO('sqlite:database.db');
+  // $database = new PDO('sqlite:database.db'); YOU DON'T NEED THIS!!!! 
 
+  // använd prepare och bindparam!! INNAN EXECUTE!!!! 
   $database->exec("INSERT INTO users (username, email, img_url, password) VALUES ('$username', '$email','$imgurl', '$password')");
 }
 

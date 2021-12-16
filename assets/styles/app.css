@@ -1,1 +1,4 @@
 /* In this file you can add your custom styles. */
+* {
+  box-sizing: border-box;
+}
