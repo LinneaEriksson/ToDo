@@ -40,14 +40,12 @@ foreach ($errors as $error) : ?>
 // DOWN FROM HERE IS FOR THE REST 
 
 
-if (isset($_POST['username'])) {
-  $username = trim($_POST['username']);
-  $email = $_POST['email'];
-  $imgurl = $_FILES['avatar'];
-  $password = $_POST['password'];
+if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
+  $username = trim(filter_var($_POST['username'], FILTER_SANITIZE_STRING));
+  $email = trim(filter_var($_POST['email'], FILTER_VALIDATE_EMAIL));
+  $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
 
-  // $database = new PDO('sqlite:database.db'); YOU DON'T NEED THIS!!!! 
 
   // använd prepare och bindparam!! INNAN EXECUTE!!!! 
   $database->exec("INSERT INTO users (username, email, img_url, password) VALUES ('$username', '$email','$imgurl', '$password')");
