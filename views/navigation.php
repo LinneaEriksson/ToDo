@@ -17,5 +17,12 @@
                 <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="login.php">Login</a>
             <?php endif; ?>
         </li>
+
+        <?php if (isset($_SESSION['user']) === true) { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="/app/users/logout.php">Logout</a>
+            </li>
+
+        <?php } ?>
     </ul>
 </nav>
