@@ -28,11 +28,11 @@
     <input class="form-control" type="password" name="password" id="password" placeholder="Please create a password" required>
     <small class="form-text">Create your password</small>
   </div>
-  <!-- form for profilepicture -->
-  <div class="mb-3">
+  <!-- form for profilepicture, ANVÄND EJ!!! -->
+  <!-- <div class="mb-3">
     <label for="avatar">Choose a PNG image to upload</label>
     <input type="file" name="avatar" id="avatar" accept=".png" required>
-  </div>
+  </div> -->
 
   <button type="submit" class="btn btn-primary">Sign up!</button>
 </form>
