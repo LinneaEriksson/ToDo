@@ -7,8 +7,15 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/about.php' ? 'active' : ''; ?>" href="/about.php">About</a>
+            <a class="nav-link <?php echo $_SERVER['SCRIPT_NAME'] === '/tasks.php' ? 'active' : ''; ?>" href="/tasks.php">Tasks</a>
         </li>
+
+        <?php if (isset($_SESSION['user']) === true) { ?>
+            <li class="nav-item">
+                <a class="nav-link" href="editProfile.php">Edit profile</a>
+            </li>
+
+        <?php } ?>
 
         <li class="nav-item">
             <?php if (isset($_SESSION['user'])) : ?>
@@ -18,11 +25,6 @@
             <?php endif; ?>
         </li>
 
-        <?php if (isset($_SESSION['user']) === true) { ?>
-            <li class="nav-item">
-                <a class="nav-link" href="/app/users/logout.php">Logout</a>
-            </li>
 
-        <?php } ?>
     </ul>
 </nav>

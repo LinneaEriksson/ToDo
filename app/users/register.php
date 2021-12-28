@@ -30,13 +30,10 @@ require __DIR__ . '/../autoload.php';
 // We don't wan't to upload here! 
 // }
 
-foreach ($errors as $error) : ?>
-  <p class="error"><?php echo $error; ?></p>
-<?php endforeach; ?>
 
-<?php if (isset($message)) : ?>
-  <p class="success"><?php echo $message; ?></p>
-<?php endif;
+
+
+
 
 // DOWN FROM HERE IS FOR THE REST 
 
@@ -54,6 +51,6 @@ if (isset($_POST['username'], $_POST['email'], $_POST['password'])) {
 
   $sql->execute();
 };
- 
 
-// redirect('/');
+
+redirect('/login.php');
