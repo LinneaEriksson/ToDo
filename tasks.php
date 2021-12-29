@@ -3,8 +3,18 @@
 
 <article>
     <h1>Tasks</h1>
-    <p>This is what you have todo!</p>
+    <p>This is what you have ToDo</p>
 
+    <form action="app/users/tasks.php" method="post" enctype="multipart/form-data">
+        <!-- Form for username -->
+        <div class="mb-3">
+            <label for="list">Add a list</label>
+            <input class="form-control" type="list" name="list" id="list" placeholder="Write your list" required>
+            <small class="form-text">Create your list</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add list</button>
+    </form>
 
 
     <form action="app/users/tasks.php" method="post" enctype="multipart/form-data">
