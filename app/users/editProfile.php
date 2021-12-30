@@ -29,6 +29,9 @@ if (isset($_FILES['profilePicture'])) {
   $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
 }
 
+// This is where we change the emailadress
 
+
+// This is where we change username
 
 redirect('/editProfile.php');

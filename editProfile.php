@@ -18,5 +18,14 @@
   <button type="submit" class="btn btn-primary">Add picture</button>
 </form>
 
+<?php
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+if (isset($_SESSION['user']['image_url'])) {
+?>
+  <img src="<?= $_SESSION['user']['image_url'] ?>">
+<?php
+}
+
+
+
+require __DIR__ . '/views/footer.php'; ?>
