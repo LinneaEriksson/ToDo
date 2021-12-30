@@ -21,8 +21,7 @@ if (isset($_POST['list'])) {
   $list = trim(filter_var($_POST['list'], FILTER_SANITIZE_STRING));
 
 
-  $sql = $database->prepare("INSERT INTO lists (title, user_id) VALUES (:list) SELECT users.id FROM users INNER JOIN lists
-  ON lists.user_id = users.id");
+  $sql = $database->prepare("INSERT INTO lists (title, user_id) VALUES (:list,) INNER JOIN ON ");
   $sql->bindParam(':list', $list, PDO::PARAM_STR);
 
   $sql->execute();
