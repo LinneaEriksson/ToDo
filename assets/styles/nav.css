@@ -1,0 +1,41 @@
+@media screen and (min-width: 1000px) {
+  .navbar {
+    background-color: #5d614d;
+    text-decoration: none;
+  }
+
+  /* styling for TODO LOGO */
+  .navbar-brand {
+    font-size: 3rem;
+    text-decoration: none;
+    color: white;
+    margin-left: 50px;
+  }
+
+  .navbar-brand:hover {
+    color: white;
+  }
+
+  /* styling for ul */
+  .navbar-nav {
+    font-size: 2rem;
+    margin: 20px;
+    margin-left: 40px;
+  }
+
+  /* styling for li */
+  .nav-item {
+    padding: 20px;
+  }
+
+  /* Styling for links in bar */
+  .nav-link {
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+  }
+
+  .nav-link:hover {
+    color: rgb(208, 221, 134);
+  }
+}
