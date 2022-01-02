@@ -1,0 +1,7 @@
+@media screen and (min-width: 1000px) {
+  .editProfileSection {
+    margin-bottom: 50px;
+    padding: 50px;
+    background-color: rgb(221, 223, 213);
+  }
+}

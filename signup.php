@@ -19,7 +19,7 @@
   <div class="mb-3">
     <label for="email">Email</label>
     <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
-    <small class="form-text">Please provide the your email address.</small>
+    <small class="form-text">Please provide your email address.</small>
   </div>
 
   <!-- form for password -->

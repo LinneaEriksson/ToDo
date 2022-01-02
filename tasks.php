@@ -1,7 +1,7 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<article>
+<article class="editProfileSection">
     <h1>Tasks</h1>
     <p>This is what you have ToDo</p>
 
