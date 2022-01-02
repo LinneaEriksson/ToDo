@@ -19,12 +19,16 @@ require __DIR__ . '/app/thisIaATest.php';
       <input type="file" name="profilePicture" id="profilePicture" accept=".png" required>
 
       <br>
-      <button type="submit" class="btn">Change profile picture</button>
+      <button type="submit" class="btn">Add new profile picture</button>
     </form>
   </div>
 
   <div class="centered">
-    <img src="app/database/userimages/<?= $profileImg ?>">
+    <?php
+    if (isset($profileImg)) {
+    ?>
+      <img src="app/database/userimages/<?= $profileImg ?>">
+    <?php } ?>
   </div>
 </article>
 

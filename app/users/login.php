@@ -32,5 +32,5 @@ if (password_verify($_POST['password'], $user['password'])) {
 
   $_SESSION['message'] = 'Welcome!';
 
-  redirect('/login.php');
+  redirect('/index.php');
 }
