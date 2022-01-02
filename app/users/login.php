@@ -30,8 +30,7 @@ if (password_verify($_POST['password'], $user['password'])) {
     'email' => $user['email'],
   ];
 
-  $_SESSION['message'] = 'Welcome' . $user['name'] . '!';
+  $_SESSION['message'] = 'Welcome!';
 
-
-  redirect('/index.php');
+  redirect('/login.php');
 }

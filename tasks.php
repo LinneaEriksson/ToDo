@@ -1,5 +1,16 @@
-<?php require __DIR__ . '/app/autoload.php'; ?>
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__ . '/app/autoload.php';
+require __DIR__ . '/views/header.php';
+
+// $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
+// $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+// $sql->execute();
+
+// $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
+
+// $lists = $_SESSION['user']["title"];
+
+
+?>
 
 <article class="editProfileSection">
 
@@ -16,6 +27,10 @@
         <button type="submit" class="btn btn-primary">Add list</button>
     </form>
 </article>
+
+<?php
+
+?>
 
 <article class="editProfileSection">
     <form action="app/users/tasks.php" method="post">
@@ -48,4 +63,7 @@
     </form>
 </article>
 
-<?php require __DIR__ . '/views/footer.php'; ?>
+
+
+<?php
+require __DIR__ . '/views/footer.php'; ?>
