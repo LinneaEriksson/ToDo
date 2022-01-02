@@ -1,5 +1,15 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__ . '/views/header.php';
+
+
+$sql = $database->prepare('SELECT * FROM users WHERE id = :id');
+$sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+$sql->execute();
+
+$_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
+
+// die(var_dump($_SESSION['user']["img_url"]));
+?>
 
 <article class="editProfileSection">
   <h1>Edit profile</h1>
@@ -17,18 +27,17 @@
 
     <button type="submit" class="btn">Change profile picture</button>
   </form>
+
+  <?php
+  $img = $_SESSION['user']["img_url"];
+
+  ?>
+  <img src="app/database/userimages/<?= $img ?>">
+
 </article>
 
-<?php
 
-if (isset($_SESSION['user']['image_url'])) {
-?>
-  <img src="<?= $_SESSION['user']['image_url'] ?>">
-<?php
-}
-
-?>
-<!-- HÄR VILL VI HA EN PLACEHOLDER MED DEN NUVARANDE ADRESSEN OCH INTE FRANCIS!!!! -->
+<!-- HÄR VILL VI HA EN PLACEHOLDER MED DEN NUVARANDE MEJLADRESSEN OCH INTE FRANCIS!!!! -->
 <article class="editProfileSection">
   <h2>Change your email-adress here </h2>
   <form action="app/users/editProfile.php" method="post">

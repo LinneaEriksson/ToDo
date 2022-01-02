@@ -4,43 +4,36 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// Add a task
-
-
-// if (isset($_POST['todo'])) {
-//   $todo = trim(filter_var($_POST['todo'], FILTER_SANITIZE_STRING));
-
-
-//   $sql = $database->prepare("INSERT INTO tasks (description) VALUES (:todo)");
-//   $sql->bindParam(':todo', $todo, PDO::PARAM_STR);
-
-//   $sql->execute();
-// };
+// Add a list
 
 if (isset($_POST['list'])) {
   $list = trim(filter_var($_POST['list'], FILTER_SANITIZE_STRING));
 
 
-  $sql = $database->prepare("INSERT INTO lists (title, user_id) VALUES (:list,) INNER JOIN ON ");
+  $sql = $database->prepare("INSERT INTO lists (title, user_id) VALUES (:list,)");
   $sql->bindParam(':list', $list, PDO::PARAM_STR);
 
   $sql->execute();
 };
 
-// INSERT INTO Orders ( userid, timestamp) 
-// SELECT Orders.userid, Orders.timestamp FROM Users INNER JOIN Orders ON  Orders.id = Users.id
+
+
+// Add a task 
 
 
 
-if (isset($_POST['todo'], $_POST['deadline'])) {
+if (isset($_POST['title'], $_POST['todo'], $_POST['deadline'], $_POST['completed'])) {
+  $title = trim(filter_var($_POST['title'], FILTER_SANITIZE_STRING));
   $todo = trim(filter_var($_POST['todo'], FILTER_SANITIZE_STRING));
   $deadline = ($_POST['deadline']);
-  // LÄGG TILL FÖR DATUM HÄR!!
+  $completed = ($_POST['completed']);
 
 
-  $sql = $database->prepare("INSERT INTO tasks (description, deadline) VALUES (:todo, :deadline)");
+  $sql = $database->prepare("INSERT INTO tasks (title, description, deadline, completed) VALUES (:title, :todo, :deadline, :completed)");
+  $sql->bindParam(':title', $title, PDO::PARAM_STR);
   $sql->bindParam(':todo', $todo, PDO::PARAM_STR);
   $sql->bindParam(':deadline', $deadline, PDO::PARAM_STR);
+  $sql->bindParam(':completed', $completed, PDO::PARAM_STR);
 
   $sql->execute();
 };
