@@ -16,8 +16,11 @@ if (isset($_POST['email'], $_POST['password'])) {
 
 $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-if ($user === false) {
-  redirect('/index.php');
+if (password_verify($_POST['password'], $user['password']) === false) {
+
+  $_SESSION['message'] = 'You have entered the wrong email or password, please try again!';
+
+  redirect('/login.php');
 }
 
 if (password_verify($_POST['password'], $user['password'])) {

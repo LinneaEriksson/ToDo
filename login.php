@@ -1,24 +1,34 @@
 <?php require __DIR__ . '/app/autoload.php'; ?>
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__ . '/views/header.php';
 
-<article>
+
+$message = $_SESSION['message'] ?? '';
+unset($_SESSION['message']);
+
+?>
+
+<article class="editProfileSection">
     <h1>Login</h1>
 
-    <form action="app/users/login.php" method="post">
-        <div class="mb-3">
-            <label for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
-            <small class="form-text">Please provide your email address.</small>
-        </div>
+    <p> <?php if ($message !== '') : ?>
+    <p><?php echo $message; ?></p>
+<?php endif; ?> <br>
 
-        <div class="mb-3">
-            <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" id="password" required>
-            <small class="form-text">Please provide the your password (passphrase).</small>
-        </div>
+<form action="app/users/login.php" method="post">
+    <div class="mb-3">
+        <label for="email">Email</label>
+        <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
+        <small class="form-text">Please provide your email address.</small>
+    </div>
 
-        <button type="submit" class="btn btn-primary">Login</button>
-    </form>
+    <div class="mb-3">
+        <label for="password">Password</label>
+        <input class="form-control" type="password" name="password" id="password" required>
+        <small class="form-text">Please provide the your password (passphrase).</small>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>
 </article>
 
 <!-- För att komma vidare till sign up -->
