@@ -1,14 +1,8 @@
-<?php require __DIR__ . '/app/autoload.php'; ?>
-<?php require __DIR__ . '/views/header.php';
+<?php
+require __DIR__ . '/app/autoload.php';
+require __DIR__ . '/views/header.php';
+require __DIR__ . '/app/thisIaATest.php';
 
-
-$sql = $database->prepare('SELECT * FROM users WHERE id = :id');
-$sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
-$sql->execute();
-
-$_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
-
-// die(var_dump($_SESSION['user']["img_url"]));
 ?>
 
 <article class="editProfileSection">
@@ -16,24 +10,22 @@ $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
   <p>Change your personal settings here!</p>
 </article>
 
-<article class="editProfileSection">
-  <h2>Add or change your profile picture here</h2>
-  <form action="app/users/editProfile.php" method="post" enctype="multipart/form-data">
+<article class="editProfileSection flexBoxTwoColumns">
+  <div>
+    <h2>Add or change your profile picture here</h2>
+    <form action="app/users/editProfile.php" method="post" enctype="multipart/form-data">
 
-    <div class="mb-3">
       <label for="profilePicture">Choose a PNG image to upload</label>
       <input type="file" name="profilePicture" id="profilePicture" accept=".png" required>
-    </div>
 
-    <button type="submit" class="btn">Change profile picture</button>
-  </form>
+      <br>
+      <button type="submit" class="btn">Change profile picture</button>
+    </form>
+  </div>
 
-  <?php
-  $img = $_SESSION['user']["img_url"];
-
-  ?>
-  <img src="app/database/userimages/<?= $img ?>">
-
+  <div class="centered">
+    <img src="app/database/userimages/<?= $profileImg ?>">
+  </div>
 </article>
 
 
@@ -43,7 +35,7 @@ $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
   <form action="app/users/editProfile.php" method="post">
     <div class="mb-3">
       <label for="email">Email</label>
-      <input class="form-control" type="email" name="email" id="email" placeholder="francis@darjeeling.com" required>
+      <input class="form-control" type="email" name="email" id="email" placeholder="<?= $email ?>" required>
       <small class="form-text">Provide with your new email here</small>
     </div>
 

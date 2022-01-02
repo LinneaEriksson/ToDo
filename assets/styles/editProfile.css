@@ -4,9 +4,36 @@
   background-color: rgb(221, 223, 213);
 }
 
+.centered {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  padding: 20px;
+}
+
+.editProfileSection.flexBoxTwoColumns img {
+  height: 200px;
+  border-color: black;
+  border-style: dashed;
+  border-color: violet;
+}
+
 @media screen and (min-width: 1000px) {
   .editProfileSection {
     margin-bottom: 50px;
     padding: 50px;
+  }
+
+  .centered {
+    padding-left: 50px;
+  }
+
+  .editProfileSection.flexBoxTwoColumns {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+  }
+  .editProfileSection.flexBoxTwoColumns img {
+    height: 200px;
   }
 }

@@ -6,12 +6,14 @@ require __DIR__ . '/../autoload.php';
 
 $date = date("y-m-d");
 
+$random = rand(0, PHP_INT_MAX);
+
 // This is where you add and change the profile-picture. WE CAN DO THIS AS A FUNCTION!!!!!! 
 
 if (isset($_FILES['profilePicture'])) {
   // This is an array, and you want to get the name from the file that the user uploads, thats why you put name after profilepicture!
   $profilePicture = trim(filter_var($_FILES['profilePicture']['name'], FILTER_SANITIZE_STRING));
-  $profilePicture = $date . $profilePicture;
+  $profilePicture = $date . $random . $profilePicture;
   $destination =  __DIR__ . '/../database/userimages/' . $profilePicture;
   // The file always ends up in a temporary place, here we put it in the right destination. 
   move_uploaded_file($_FILES['profilePicture']['tmp_name'], $destination);
