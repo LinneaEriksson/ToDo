@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="/assets/styles/editProfile.css">
     <link rel="stylesheet" href="/assets/styles/fontStyling.css">
     <link rel="stylesheet" href="/assets/styles/buttons.css">
+
+    <!-- Font shadows into light -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+    <!-- Font Poiret One -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
 </head>
 
 <body>

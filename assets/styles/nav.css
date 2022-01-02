@@ -1,19 +1,45 @@
-@media screen and (min-width: 1000px) {
-  .navbar {
-    background-color: #5d614d;
-    text-decoration: none;
-  }
+.navbar {
+  background-color: #5d614d;
+  text-decoration: none;
+}
 
+/* styling for TODO LOGO */
+.navbar-brand {
+  font-family: 'Shadows Into Light';
+  font-size: 25px;
+  text-decoration: none;
+  color: white;
+  background-color: rgb(208, 221, 134);
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.navbar-brand:hover {
+  color: white;
+}
+
+/* styling for ul */
+.navbar-nav {
+  font-size: 20px;
+}
+
+/* Styling for links in bar */
+.nav-link {
+  font-family: 'Poiret One';
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-link:hover {
+  color: rgb(208, 221, 134);
+}
+
+@media screen and (min-width: 1000px) {
   /* styling for TODO LOGO */
   .navbar-brand {
     font-size: 3rem;
-    text-decoration: none;
-    color: white;
     margin-left: 50px;
-  }
-
-  .navbar-brand:hover {
-    color: white;
   }
 
   /* styling for ul */
@@ -31,11 +57,5 @@
   /* Styling for links in bar */
   .nav-link {
     font-size: 2rem;
-    text-decoration: none;
-    color: white;
-  }
-
-  .nav-link:hover {
-    color: rgb(208, 221, 134);
   }
 }

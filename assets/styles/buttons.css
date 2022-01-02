@@ -1,7 +1,11 @@
+.btn {
+  background-color: tomato;
+  border: none;
+  color: white;
+}
+
 @media screen and (min-width: 1000px) {
   .btn {
-    background-color: tomato;
-    border: none;
-    color: white;
+    background-color: violet;
   }
 }

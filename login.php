@@ -31,11 +31,14 @@ unset($_SESSION['message']);
 </form>
 </article>
 
-<!-- För att komma vidare till sign up -->
-<p> You don't have an account yet? </p>
-<form method="get" action="/signup.php">
-    <button type="submit" class="btn btn-primary">Sign up here!</button>
-</form>
+<article class="editProfileSection">
+    <!-- För att komma vidare till sign up -->
+    <h1> You don't have an account yet?</h1>
+    <p>Click the button below to sign up today.
+    <form method="get" action="/signup.php">
+        <button type="submit" class="btn btn-primary">Sign up here!</button>
+    </form>
+</article>
 
 
 <?php require __DIR__ . '/views/footer.php'; ?>
