@@ -16,7 +16,7 @@ $lists = $sql->fetchAll(PDO::FETCH_ASSOC);
     <h1>Add a list</h1>
     <p>Add a list within wich you can create tasks.</p>
 
-    <form action="app/users/lists.php" method="post">
+    <form action="app/lists/lists.php" method="post">
         <div class="mb-3">
             <label for="list">Add a new list</label>
             <input class="form-control" type="list" name="list" id="list" placeholder="Write your list" required>
@@ -38,43 +38,46 @@ foreach ($lists as $list) {
 ?>
 
     <article class="editProfileSection">
-        <form action="app/users/lists.php" method="post">
-            <h1> <?= $list["title"] ?></h1>
 
+        <h1> <?= $list["title"] ?></h1>
+        <form action="app/lists/delete.php" method="post">
+            <input type="hidden" name="deleteList" value="<?= $list["id"] ?>">
+            <button type="submit" class="btn btn-primary">Delete list</button>
 
+            <h3>Title description deadline completed</h3>
             <!-- Här vill vi loopa tasksen! -->
             <?php foreach ($tasks as $task) :
             ?><li><?php echo $task['title'], $task['description'], $task['completed'], $task['deadline']; ?></li><?php
                                                                                                                 endforeach; ?>
 
+            <form action="app/lists/lists.php" method="post">
+                <div class="mb-3">
+                    <h3>Add a task to your list</h3>
+                    <label for="title">Add a title to your ToDo</label>
+                    <input class="form-control" type="title" name="title" id="title" placeholder="Title of the ToDo" required>
+                    <small class="form-text">Write the title here</small>
+                </div>
 
-            <div class="mb-3">
-                <h3>Add a task to your list</h3>
-                <label for="title">Add a title to your ToDo</label>
-                <input class="form-control" type="title" name="title" id="title" placeholder="Title of the ToDo" required>
-                <small class="form-text">Write the title here</small>
-            </div>
+                <div class="mb-3">
+                    <label for="todo">Add a task to your list here.</label>
+                    <input class="form-control" type="todo" name="todo" id="todo" placeholder="Write your ToDo" required>
+                    <small class="form-text">Create a task</small>
+                </div>
 
-            <div class="mb-3">
-                <label for="todo">Add a task to your list here.</label>
-                <input class="form-control" type="todo" name="todo" id="todo" placeholder="Write your ToDo" required>
-                <small class="form-text">Create a task</small>
-            </div>
+                <div class="mb-3">
+                    <label for="deadline">Add a deadline to your ToDo</label><br>
+                    <input type="date" id="deadline" name="deadline" value="2022-01-01" min="22-01-01" max="3000-01-01">
+                </div>
 
-            <div class="mb-3">
-                <label for="deadline">Add a deadline to your ToDo</label><br>
-                <input type="date" id="deadline" name="deadline" value="2022-01-01" min="22-01-01" max="3000-01-01">
-            </div>
+                <div class="mb-3">
+                    <input type="checkbox" name="completed" value="Completed">
+                    <label for="completed">The task is completed</label>
+                </div>
 
-            <div class="mb-3">
-                <input type="checkbox" name="completed" value="Completed">
-                <label for="completed">The task is completed</label>
-            </div>
+                <input type="hidden" name="id" value="<?= $list["id"] ?>">
 
-            <input type="hidden" name="id" value="<?= $list["id"] ?>">
-
-            <button type="submit" class="btn btn-primary">Add ToDo</button>
-        </form>
+                <button type="submit" class="btn btn-primary">Add ToDo</button>
+            </form>
     </article>
 <?php
 
