@@ -15,24 +15,6 @@ if (isset($_POST['list'])) {
   $sql->bindParam(':userid', $_SESSION['user']['id'], PDO::PARAM_STR);
 
   $sql->execute();
-
-  $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id');
-  $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
-  $sql->execute();
-
-  $_SESSION['lists'] = $sql->fetchAll(PDO::FETCH_ASSOC);
-  $lists = $_SESSION['lists'];
-
-  foreach ($lists as $list) {
-    $id = $list["id"];
-
-    $sql = $database->prepare('SELECT * FROM tasks WHERE list_id = :id');
-    $sql->bindParam(':id', $id, PDO::PARAM_INT);
-    $sql->execute();
-
-
-    $_SESSION['tasks'][$id] = $sql->fetchAll(PDO::FETCH_ASSOC);
-  };
 };
 
 // add a task
@@ -56,12 +38,11 @@ if (isset($_POST['title'], $_POST['todo'], $_POST['deadline'])) {
 
   $sql->execute();
 
-  // $sql = $database->prepare('SELECT * FROM tasks WHERE list_id = :id');
-  // $sql->bindParam(':id', $id, PDO::PARAM_INT);
-  // $sql->execute();
+  $sql = $database->prepare('SELECT * FROM tasks WHERE list_id = :id');
+  $sql->bindParam(':id', $id, PDO::PARAM_INT);
+  $sql->execute();
 
-  // $_SESSION['tasks'] = $sql->fetchAll(PDO::FETCH_ASSOC);
-  // $tasks = $_SESSION['tasks'];
+  $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
 };
 
 
