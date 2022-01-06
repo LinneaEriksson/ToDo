@@ -1,11 +1,22 @@
 .btn {
-  background-color: tomato;
+  background-color: violet;
   border: none;
   color: white;
 }
+.btn:hover {
+  background-color: #a378a3;
+}
+
+.spaceBetween .btnEditlists {
+  margin-right: 20px;
+}
+
+.spaceBetween .btnDelete {
+  background-color: red;
+}
+.spaceBetween .btnDelete:hover {
+  background-color: darkred;
+}
 
 @media screen and (min-width: 1000px) {
-  .btn {
-    background-color: violet;
-  }
 }

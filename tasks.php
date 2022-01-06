@@ -10,9 +10,8 @@ $sql->execute();
 $lists = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
-
+<!-- Add a new list -->
 <article class="editProfileSection">
-
     <h1>Add a list</h1>
     <p>Add a list within wich you can create tasks.</p>
 
@@ -36,21 +35,36 @@ foreach ($lists as $list) {
 
     $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
-
+    <!-- Shows the lists, edit and delete options -->
     <article class="editProfileSection">
+        <div class="spaceBetween">
+            <h1> <?= $list["title"] ?></h1>
+            <div class="buttonsInLine">
 
-        <h1> <?= $list["title"] ?></h1>
-        <form action="app/lists/delete.php" method="post">
-            <input type="hidden" name="deleteList" value="<?= $list["id"] ?>">
-            <button type="submit" class="btn btn-primary">Delete</button>
+                <button class="btn btn-primary btnEditLists">Edit</button>
+
+                <form action="app/lists/delete.php" method="post">
+                    <input type="hidden" name="deleteList" value="<?= $list["id"] ?>">
+                    <button type="submit" class="btn btn-primary btnDelete">Delete</button>
+                </form>
+            </div>
+        </div>
+        <!-- edit list -->
+        <form action="app/lists/edit.php" method="post">
+            <div class="mb-3">
+                <label for="list">Edit your list</label>
+                <input class="form-control" type="list" name="list" id="list" placeholder="<?= $list["title"] ?>" required>
+                <input type="hidden" name="editList" value="<?= $list["id"] ?>">
+                <button type="submit" class="btn btn-primary">Edit list</button>
+            </div>
         </form>
-
+        <!-- Shows tasks -->
         <h3>Title description deadline completed</h3>
-        <!-- Här vill vi loopa tasksen! -->
+
         <?php foreach ($tasks as $task) :
         ?><li><?php echo $task['title'], $task['description'], $task['completed'], $task['deadline']; ?></li><?php
                                                                                                             endforeach; ?>
-
+        <!-- add a new task to the list -->
         <form action="app/lists/lists.php" method="post">
             <div class="mb-3">
                 <h3>Add a task to your list</h3>

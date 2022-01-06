@@ -1,0 +1,10 @@
+.spaceBetween {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.buttonsInLine {
+  display: flex;
+  flex-direction: row;
+}

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/assets/styles/editProfile.css">
     <link rel="stylesheet" href="/assets/styles/fontStyling.css">
     <link rel="stylesheet" href="/assets/styles/buttons.css">
+    <link rel="stylesheet" href="/assets/styles/tasks.css">
 
     <!-- Font shadows into light -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
