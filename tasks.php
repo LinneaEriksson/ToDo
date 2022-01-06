@@ -41,7 +41,7 @@ foreach ($lists as $list) {
             <h1> <?= $list["title"] ?></h1>
             <div class="buttonsInLine">
 
-                <button class="btn btn-primary btnEditLists">Edit</button>
+                <button class="btn btn-primary btnEditLists" onclick="addClassToEditField()">Edit</button>
 
                 <form action="app/lists/delete.php" method="post">
                     <input type="hidden" name="deleteList" value="<?= $list["id"] ?>">
