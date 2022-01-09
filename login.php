@@ -5,6 +5,7 @@
 $message = $_SESSION['message'] ?? '';
 unset($_SESSION['message']);
 
+
 ?>
 
 <article class="editProfileSection">
