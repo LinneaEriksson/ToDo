@@ -77,6 +77,8 @@ foreach ($lists as $list) {
                         <?php echo $task['completed']; ?>
                         <?php echo $task['id']; ?>
 
+                        <?php die(var_dump($task)); ?>
+
                     </div>
                     <!-- Edit or delete task here -->
 

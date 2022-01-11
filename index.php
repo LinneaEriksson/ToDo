@@ -46,7 +46,10 @@ if (isset($_SESSION['user']) === true) {
                     <div class="tasksUncompleted">
                         <h4> <?php echo $task['title']; ?></h4>
                         <?php echo $task['description']; ?><br>
+                        <input type="hidden" name="listId" value="<?= $list["id"] ?>">
+                        <button type="submit" class="completedTask">Completed</button>
                     </div>
+
             <?php
 
                 }
