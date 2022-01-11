@@ -12,3 +12,9 @@
 .hidden {
   background-color: black;
 }
+
+.tasks {
+  background-color: rgb(237, 238, 235);
+  margin: 10px;
+  padding: 10px;
+}

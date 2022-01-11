@@ -34,17 +34,27 @@ $lists = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
         $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+
+        echo "This is what you have ToDo today!";
+
+        foreach ($tasks as $task) :
     ?>
+            <div class="tasks">
+                <div>
+                    <h4> <?php echo $task['title']; ?></h4>
+                    <?php echo $task['description']; ?><br>
+                    <?php echo $task['deadline']; ?>
+                    <?php echo $task['completed']; ?>
+                </div>
+            <?php
+        endforeach; ?>
 
-
-        <?php foreach ($tasks as $task) :
-        ?><li><?php echo $task['title'], $task['description'], $task['completed'], $task['deadline']; ?></li><?php
-                                                                                                            endforeach; ?>
-
-    <?php
+        <?php
 
     }
-    ?>
+
+        ?>
 </article>
 <?php
 

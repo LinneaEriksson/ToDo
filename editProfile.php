@@ -33,7 +33,6 @@ require __DIR__ . '/app/thisIaATest.php';
 </article>
 
 
-<!-- HÄR VILL VI HA EN PLACEHOLDER MED DEN NUVARANDE MEJLADRESSEN OCH INTE FRANCIS!!!! -->
 <article class="editProfileSection">
   <h2>Change your email-adress here </h2>
   <form action="app/users/editProfile.php" method="post">
