@@ -12,14 +12,13 @@ $lists = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!-- Add a new list -->
 <article class="editProfileSection">
-    <h1>Add a list</h1>
-    <p>Add a list within wich you can create tasks.</p>
+    <h1>Add a new list</h1>
 
     <form action="app/lists/lists.php" method="post">
         <div class="mb-3">
-            <label for="list">Add a new list</label>
-            <input class="form-control" type="list" name="list" id="list" placeholder="Write your list" required>
-            <small class="form-text">Create your list</small>
+            <label for="list">Add a list within wich you can create tasks.</label>
+            <input class="form-control" type="list" name="list" id="list" required>
+
         </div>
 
         <button type="submit" class="btn btn-primary">Add list</button>
@@ -29,7 +28,11 @@ $lists = $sql->fetchAll(PDO::FETCH_ASSOC);
 <?php
 foreach ($lists as $list) {
 
-    $sql = $database->prepare('SELECT tasks.deadline, tasks.description, tasks.title, tasks.list_id, tasks.completed, lists.id FROM tasks INNER JOIN lists on tasks.list_id = lists.id WHERE list_id = :id');
+    $sql = $database->prepare('SELECT tasks.id, tasks.deadline, tasks.description, tasks.title, tasks.list_id, tasks.completed, lists.id  
+    FROM tasks 
+    INNER JOIN lists on tasks.list_id = lists.id 
+    WHERE list_id = :id');
+
     $sql->bindParam(':id', $list["id"], PDO::PARAM_INT);
     $sql->execute();
 
@@ -72,6 +75,8 @@ foreach ($lists as $list) {
                         <?php echo $task['description']; ?><br>
                         <?php echo $task['deadline']; ?>
                         <?php echo $task['completed']; ?>
+                        <?php echo $task['id']; ?>
+
                     </div>
                     <!-- Edit or delete task here -->
 
@@ -79,7 +84,7 @@ foreach ($lists as $list) {
                         <button class="btn btn-primary btnEditLists">Edit</button>
 
                         <form action="app/tasks/delete.php" method="post">
-                            <input type="hidden" name="deleteTask" value="<?= $task["id"] ?>">
+                            <input type="hidden" name="deleteTask" value="<?= $task['id'] ?>">
                             <button type="submit" class="btn btn-primary btnDelete">Delete</button>
                         </form>
                     </div>
@@ -99,19 +104,19 @@ foreach ($lists as $list) {
 
             </div><?php
                 endforeach; ?>
+
         <!-- add a new task to the list -->
-        <form action="app/lists/lists.php" method="post">
+        <form action="app/tasks/tasks.php" method="post">
             <div class="mb-3">
                 <h3>Add a task to your list</h3>
                 <label for="title">Add a title to your ToDo</label>
-                <input class="form-control" type="title" name="title" id="title" placeholder="Title of the ToDo" required>
-                <small class="form-text">Write the title here</small>
+                <input class="form-control" type="title" name="title" id="title" required>
+
             </div>
 
             <div class="mb-3">
                 <label for="todo">Add a task to your list here.</label>
-                <input class="form-control" type="todo" name="todo" id="todo" placeholder="Write your ToDo" required>
-                <small class="form-text">Create a task</small>
+                <input class="form-control" type="todo" name="todo" id="todo" required>
             </div>
 
             <div class="mb-3">

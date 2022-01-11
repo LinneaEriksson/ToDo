@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+// Delete a list with all tasks in it!
 
 if (isset($_POST['deleteList'])) {
   $id = trim(filter_var($_POST['deleteList'], FILTER_SANITIZE_STRING));
-  // Den här queryn funkar inte! Vad är felet? :O
   $sql = $database->prepare("DELETE FROM lists WHERE lists.id = :listid");
   $sql->bindParam(':listid', $id, PDO::PARAM_STR);
   $sql->execute();

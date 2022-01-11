@@ -37,9 +37,8 @@ require __DIR__ . '/app/thisIaATest.php';
   <h2>Change your email-adress here </h2>
   <form action="app/users/editProfile.php" method="post">
     <div class="mb-3">
-      <label for="email">Email</label>
+      <label for="email">Provide with your new email here</label>
       <input class="form-control" type="email" name="email" id="email" placeholder="<?= $email ?>" required>
-      <small class="form-text">Provide with your new email here</small>
     </div>
 
     <button type="submit" class="btn">Change email</button>
@@ -48,12 +47,11 @@ require __DIR__ . '/app/thisIaATest.php';
 
 
 <article class="editProfileSection">
-  <h2>Change your password here </h2>
+  <h2>Change your new password here </h2>
   <form action="app/users/editProfile.php" method="post">
     <div class="mb-3">
-      <label for="password">Password</label>
+      <label for="password">Create your password</label>
       <input class="form-control" type="password" name="password" id="password" placeholder="Please create a new password" required>
-      <small class="form-text">Create your password</small>
     </div>
 
     <button type="submit" class="btn">Change password</button>
