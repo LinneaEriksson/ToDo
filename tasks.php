@@ -41,7 +41,7 @@ foreach ($lists as $list) {
             <h1> <?= $list["title"] ?></h1>
             <div class="buttonsInLine">
 
-                <button class="btn btn-primary btnEditLists" onclick="addClassToEditField()">Edit</button>
+                <button class="btn btn-primary btnEditLists">Edit</button>
 
                 <form action="app/lists/delete.php" method="post">
                     <input type="hidden" name="deleteList" value="<?= $list["id"] ?>">
@@ -52,10 +52,12 @@ foreach ($lists as $list) {
         <!-- edit list -->
         <form action="app/lists/edit.php" method="post">
             <div class="mb-3">
-                <label for="editList">Edit your list</label>
-                <input class="form-control" type="text" name="editList" id="editList" placeholder="<?= $list["title"] ?>" required>
-                <input type="hidden" name="listId" value="<?= $list["id"] ?>">
-                <button type="submit" class="btn btn-primary">Edit list</button>
+                <div class="editListForm hidden">
+                    <label for="editList">Edit your list</label>
+                    <input class="form-control" type="text" name="editList" id="editList" placeholder="<?= $list["title"] ?>" required>
+                    <input type="hidden" name="listId" value="<?= $list["id"] ?>">
+                    <button type="submit" class="btn btn-primary">Edit list</button>
+                </div>
             </div>
         </form>
         <!-- Shows tasks -->
