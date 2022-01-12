@@ -16,8 +16,8 @@ require __DIR__ . '/app/thisIaATest.php';
     <form action="app/users/editProfile.php" method="post" enctype="multipart/form-data">
 
       <label for="profilePicture">Choose a PNG image to upload</label>
-      <input type="file" name="profilePicture" id="profilePicture" accept=".png" required>
-
+      <input type="file" name="profilePicture" id="profilePicture" accept=".jpg" required>
+      <br>
       <br>
       <button type="submit" class="btn">Add new profile picture</button>
     </form>
@@ -27,7 +27,7 @@ require __DIR__ . '/app/thisIaATest.php';
     <?php
     if (isset($profileImg)) {
     ?>
-      <img src="app/database/userimages/<?= $profileImg ?>">
+      <img src="app/database/userimages/<?= $profileImg ?>" class="profilePicture" alt="Your profile picture">
     <?php } ?>
   </div>
 </article>

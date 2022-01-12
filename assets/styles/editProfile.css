@@ -15,11 +15,12 @@
   padding: 20px;
 }
 
-.editProfileSection.flexBoxTwoColumns img {
+.profilePicture {
+  border-radius: 100%;
   height: 200px;
-  border-color: black;
-  border-style: dashed;
+  width: 200px;
   border-color: violet;
+  margin: auto;
 }
 
 @media screen and (min-width: 1000px) {
