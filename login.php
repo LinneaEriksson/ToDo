@@ -11,7 +11,7 @@ unset($_SESSION['message']);
 <article class="editProfileSection">
     <h1>Login</h1>
 
-    <p> <?php if ($message !== '') : ?> 
+    <p> <?php if ($message !== '') : ?>
     <p><?php echo $message; ?></p>
 <?php endif; ?> <br>
 

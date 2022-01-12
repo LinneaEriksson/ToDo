@@ -23,8 +23,8 @@
     <!-- form for password -->
     <div class="mb-3">
       <label for="password">Password</label>
-      <input class="form-control" type="password" name="password" id="password" placeholder="Please create a password" required>
-      <small class="form-text">Create your password</small>
+      <input class="form-control" type="password" name="password" id="password" placeholder="Please create a password" minlength="16" required>
+      <small class="form-text">Create your password, it should be at least 16 characters long.</small>
     </div>
 
     <button type="submit" class="btn btn-primary">Sign up!</button>

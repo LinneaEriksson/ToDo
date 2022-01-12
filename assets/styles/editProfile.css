@@ -1,7 +1,11 @@
+:root {
+  --bigDivs: rgb(221, 223, 213);
+}
+
 .editProfileSection {
   margin-bottom: 20px;
   padding: 20px;
-  background-color: rgb(221, 223, 213);
+  background-color: var(--bigDivs);
 }
 
 .centered {

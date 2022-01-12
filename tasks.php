@@ -28,23 +28,24 @@ $lists = $sql->fetchAll(PDO::FETCH_ASSOC);
 <?php
 foreach ($lists as $list) {
 
-    $sql = $database->prepare('SELECT tasks.id, tasks.deadline, tasks.description, tasks.title, tasks.list_id, tasks.completed, lists.id  
-    FROM tasks 
-    INNER JOIN lists on tasks.list_id = lists.id 
-    WHERE list_id = :id');
-
-    $sql->bindParam(':id', $list["id"], PDO::PARAM_INT);
+    $listId = $list["id"];
+    $sql = $database->prepare('SELECT tasks.* FROM tasks INNER JOIN
+        lists on tasks.list_id = lists.id WHERE lists.user_id = :id AND list_id = :listId ORDER BY completed');
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+    $sql->bindParam(':listId', $listId, PDO::PARAM_INT);
     $sql->execute();
 
     $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
-    <!-- Shows the lists, edit and delete options -->
+    <!-- Shows the lists, edit and delete buttons -->
     <article class="editProfileSection">
         <div class="spaceBetween">
             <h1> <?= $list["title"] ?></h1>
             <div class="buttonsInLine">
 
-                <button class="btn btn-primary btnEditLists">Edit</button>
+                <button class="btnEditLists">Edit</button>
 
                 <form action="app/lists/delete.php" method="post">
                     <input type="hidden" name="deleteList" value="<?= $list["id"] ?>">
@@ -65,25 +66,45 @@ foreach ($lists as $list) {
         </form>
         <!-- Shows tasks -->
 
-        <?php foreach ($tasks as $task) :
-        ?>
 
+        <?php foreach ($tasks as $task) :
+
+
+        ?>
             <div class="tasks">
                 <div class="spaceBetween">
                     <div>
                         <h4> <?php echo $task['title']; ?></h4>
                         <?php echo $task['description']; ?><br>
                         <?php echo $task['deadline']; ?>
-                        <?php echo $task['completed']; ?>
-                        <?php echo $task['id']; ?>
-
-                        <?php die(var_dump($task)); ?>
-
                     </div>
-                    <!-- Edit or delete task here -->
+
+
+                    <!-- uncomplete, Edit or delete buttons for task here -->
 
                     <div class="buttonsInLine">
-                        <button class="btn btn-primary btnEditLists">Edit</button>
+
+                        <?php
+                        if ($task['completed'] === 'Completed') {
+                        ?>
+                            <form action="app/tasks/uncomplete.php" method="post">
+                                <input type="hidden" name="completed" value="NULL">
+                                <input type="hidden" name="unCompleteTaskId" value="<?= $task["id"] ?>">
+                                <button type="submit" class="unCompleteTask">This is not done!</button>
+                            </form>
+                        <?php } else {
+                        ?>
+                            <form action="app/tasks/complete.php" method="post">
+                                <input type="hidden" name="completed" value="Completed">
+                                <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
+                                <button type="submit" class="completeTask">Complete task!</button>
+                            </form>
+
+                        <?php
+                        }
+                        ?>
+
+                        <button class="btnEditTasks">Edit</button>
 
                         <form action="app/tasks/delete.php" method="post">
                             <input type="hidden" name="deleteTask" value="<?= $task['id'] ?>">
@@ -95,25 +116,28 @@ foreach ($lists as $list) {
                 <!-- edit task -->
 
                 <div class="mb-3">
-                    <form action="app/tasks/edit.php" method="post">
-                        <label for="editTask">Edit your task</label>
-                        <input class="form-control" type="text" name="editTask" id="editTask" placeholder="<?= $task["title"] ?>" required>
-                        <input type="hidden" name="taskId" value="<?= $task["id"] ?>">
-                        <button type="submit" class="btn btn-primary">Edit task</button>
-                    </form>
+                    <div class="editTaskForm hidden">
+                        <form action="app/tasks/edit.php" method="post">
+                            <label for="editTask">Edit your task</label>
+                            <input class="form-control" type="text" name="editTask" id="editTask" placeholder="<?= $task["title"] ?>" required>
+                            <input type="hidden" name="taskId" value="<?= $task["id"] ?>">
+                            <button type="submit" class="btn btn-primary">Edit task</button>
+                        </form>
+                    </div>
                 </div>
-
-
             </div><?php
+
                 endforeach; ?>
 
         <!-- add a new task to the list -->
-        <form action="app/tasks/tasks.php" method="post">
-            <div class="mb-3">
-                <h3>Add a task to your list</h3>
-                <label for="title">Add a title to your ToDo</label>
-                <input class="form-control" type="title" name="title" id="title" required>
 
+
+        <button class="btnAddTask">Add a task to your list</button>
+        <div class="newTask">
+            <div class="mb-3">
+                <form action="app/tasks/tasks.php" method="post">
+                    <label for="title">Add a title to your ToDo</label>
+                    <input class="form-control" type="title" name="title" id="title" required>
             </div>
 
             <div class="mb-3">
@@ -134,7 +158,8 @@ foreach ($lists as $list) {
             <input type="hidden" name="id" value="<?= $list["id"] ?>">
 
             <button type="submit" class="btn btn-primary">Add ToDo</button>
-        </form>
+            </form>
+        </div>
     </article>
 <?php
 

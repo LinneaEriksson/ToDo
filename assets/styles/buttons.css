@@ -18,9 +18,47 @@
   background-color: darkred;
 }
 
-.completedTask {
-  background-color: green;
+.completeTask {
+  background-color: rgb(142, 179, 142);
   color: white;
+  border: none;
+  padding: 5px;
+}
+
+.unCompleteTask {
+  background-color: rgb(179, 149, 142);
+  color: white;
+  border: none;
+  padding: 5px;
+}
+
+.btnEditTasks {
+  background-color: rgb(255, 255, 255);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 5px;
+  border-radius: 10%;
+  height: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btnEditLists {
+  background-color: violet;
+  border: none;
+  color: white;
+  padding: 5px;
+  border-radius: 10%;
+  height: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.addTask {
+  color: rgb(156, 25, 156);
+  font-weight: 900;
+  font-size: 18px;
+  background-color: transparent;
   border: none;
 }
 

@@ -1,0 +1,13 @@
+:root {
+  --bigDivs: #dddfd5;
+}
+
+.messageIndexPage {
+  background-color: #eef0e9;
+  display: flex;
+  justify-content: center;
+  /* width: 30%; */
+  margin: auto;
+  text-align: center;
+  padding-top: 10px;
+}

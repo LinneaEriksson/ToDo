@@ -51,7 +51,7 @@ require __DIR__ . '/app/thisIaATest.php';
   <form action="app/users/editProfile.php" method="post">
     <div class="mb-3">
       <label for="password">Create your password</label>
-      <input class="form-control" type="password" name="password" id="password" placeholder="Please create a new password" required>
+      <input class="form-control" type="password" name="password" id="password" placeholder="Please create a new password" minlength="16" required>
     </div>
 
     <button type="submit" class="btn">Change password</button>
