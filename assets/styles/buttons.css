@@ -91,5 +91,19 @@
   margin: 20px;
 }
 
+.mobileButtonsInLine .btnEditTasks {
+  margin-top: 10px;
+}
+
+.mobileButtonsInLine .btnDelete {
+  margin-top: 10px;
+}
+
 @media screen and (min-width: 1000px) {
+  .mobileButtonsInLine .btnEditTasks {
+    margin-top: 0px;
+  }
+  .mobileButtonsInLine .btnDelete {
+    margin-top: 0px;
+  }
 }

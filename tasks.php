@@ -82,7 +82,7 @@ foreach ($lists as $list) {
 
                     <!-- uncomplete, Edit or delete buttons for task here -->
 
-                    <div class="buttonsInLine">
+                    <div class="mobileButtonsInLine">
 
                         <?php
                         if ($task['completed'] === 'Completed') {

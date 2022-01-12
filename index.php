@@ -38,55 +38,57 @@ if (isset($_SESSION['user']) === true) {
         <article class="editProfileSection">
             <h1>This is what you have ToDo today</h1>
             <?php
-            foreach ($tasks as $task) {
-                if ($task['completed'] = 'Completed') {
+            foreach ($tasks as $task) :
+
+
             ?>
-                    <div class="tasksCompleted">
+                <div class="tasks">
+                    <div class="spaceBetween">
                         <div>
                             <h4> <?php echo $task['title']; ?></h4>
                             <?php echo $task['description']; ?><br>
-
+                            <?php echo $task['deadline']; ?>
                         </div>
-                        <div>
-                            <form action="app/tasks/uncomplete.php" method="post">
-                                <input type="hidden" name="completed" value="NULL">
-                                <input type="hidden" name="unCompleteTaskId" value="<?= $task["id"] ?>">
-                                <button type="submit" class="unCompleteTask"></button>
-                            </form>
+
+
+                        <!-- uncomplete, Edit or delete buttons for task here -->
+
+                        <div class="buttonsInLine">
+
+                            <?php
+                            if ($task['completed'] === 'Completed') {
+                            ?>
+                                <form action="app/tasks/uncomplete.php" method="post">
+                                    <input type="hidden" name="completed" value="NULL">
+                                    <input type="hidden" name="unCompleteTaskId" value="<?= $task["id"] ?>">
+                                    <button type="submit" class="unCompleteTask"></button>
+                                </form>
+                            <?php } else {
+                            ?>
+                                <form action="app/tasks/complete.php" method="post">
+                                    <input type="hidden" name="completed" value="Completed">
+                                    <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
+                                    <button type="submit" class="completeTask"></button>
+                                </form>
+
+                            <?php
+                            }
+                            ?>
                         </div>
                     </div>
-
-                <?php
-                } else {
+                <?php endforeach;
                 ?>
-                    <div class="tasksUncompleted">
-                        <div>
-                            <h4> <?php echo $task['title']; ?></h4>
-                            <?php echo $task['description']; ?><br>
-                        </div>
-                        <div>
-                            <form action="app/tasks/complete.php" method="post">
-                                <input type="hidden" name="completed" value="Completed">
-                                <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
-                                <button type="submit" class="completeTask"></button>
-                            </form>
-                        </div>
-                    </div>
-
-        </article>
-<?php
-                }
-            }
+            <?php
         } else {
-?>
-<article class="editProfileSection">
+            ?>
+                <article class="editProfileSection">
 
-    <h1>You don't have anything ToDo today!</h1>
-    <p>If you're bored you can always
-        <a href="/tasks.php">add a Todo!</button>
+                    <h1>You don't have anything ToDo today!</h1>
+                    <p>If you're bored you can always
+                        <a href="/tasks.php">add a Todo!</button>
 
-    </p>
-<?php
+                    </p>
+            <?php
         }
     }
 
