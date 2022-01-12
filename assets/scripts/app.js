@@ -21,11 +21,9 @@ btnEditTasks.addEventListener('click', addClassToEditFieldTasks);
 // Add class hidden to add task form
 
 function addClassToAddFieldTask() {
-  const addTaskForm = document.querySelector('.newTask');
+  const addTaskForm = document.querySelector('.newTaskDiv');
   addTaskForm.classList.toggle('hidden');
 }
 
 const btnAddTask = document.querySelector('.btnAddTask');
 btnAddTask.addEventListener('click', addClassToAddFieldTask);
-
-console.log(addTaskForm);

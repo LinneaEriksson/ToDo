@@ -45,11 +45,11 @@ foreach ($lists as $list) {
             <h1> <?= $list["title"] ?></h1>
             <div class="buttonsInLine">
 
-                <button class="btnEditLists">Edit</button>
+                <button class="btnEditLists"></button>
 
                 <form action="app/lists/delete.php" method="post">
                     <input type="hidden" name="deleteList" value="<?= $list["id"] ?>">
-                    <button type="submit" class="btn btn-primary btnDelete">Delete</button>
+                    <button type="submit" class="btnDelete"></button>
                 </form>
             </div>
         </div>
@@ -118,9 +118,18 @@ foreach ($lists as $list) {
                 <div class="mb-3">
                     <div class="editTaskForm hidden">
                         <form action="app/tasks/edit.php" method="post">
-                            <label for="editTask">Edit your task</label>
-                            <input class="form-control" type="text" name="editTask" id="editTask" placeholder="<?= $task["title"] ?>" required>
+
+                            <label for="editTaskTitle">Edit your task title</label>
+                            <input class="form-control" type="text" name="editTaskTitle" id="editTaskTitle" placeholder="<?= $task["title"] ?>" required>
+
+                            <label for="editTaskDescription">Edit your task description</label>
+                            <input class="form-control" type="text" name="editTeditTaskDescriptionask" id="editTaskDescription" placeholder="<?= $task["description"] ?>" required>
+
+                            <label for="deadline">Add a new deadline to your ToDo</label><br>
+                            <input type="date" id="deadline" name="deadline" value="2022-01-01" min="22-01-01" max="3000-01-01">
+                            <br>
                             <input type="hidden" name="taskId" value="<?= $task["id"] ?>">
+
                             <button type="submit" class="btn btn-primary">Edit task</button>
                         </form>
                     </div>
@@ -132,8 +141,8 @@ foreach ($lists as $list) {
         <!-- add a new task to the list -->
 
 
-        <button class="btnAddTask">Add a task to your list</button>
-        <div class="newTask">
+        <button class="btnAddTask">Add a new task to your list</button>
+        <div class="newTaskDiv">
             <div class="mb-3">
                 <form action="app/tasks/tasks.php" method="post">
                     <label for="title">Add a title to your ToDo</label>

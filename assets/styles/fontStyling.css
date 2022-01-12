@@ -1,5 +1,6 @@
 :root {
   --headingFont: 'Montserrat';
+  --accentcolor: violet;
 }
 
 h1 {
@@ -29,6 +30,14 @@ p {
   font-size: 15px;
   font-family: var(--headingFont);
   font-weight: bold;
+}
+
+a {
+  color: var(--accentcolor);
+}
+
+a:hover {
+  color: rgb(233, 16, 222);
 }
 
 .messageIndexPage p {

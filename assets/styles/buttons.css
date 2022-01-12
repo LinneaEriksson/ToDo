@@ -11,13 +11,6 @@
   margin-right: 20px;
 }
 
-.spaceBetween .btnDelete {
-  background-color: red;
-}
-.spaceBetween .btnDelete:hover {
-  background-color: darkred;
-}
-
 .completeTask {
   background-color: rgb(142, 179, 142);
   color: white;
@@ -43,13 +36,30 @@
   margin-right: 5px;
 }
 
-.btnEditLists {
-  background-color: violet;
+.btnDelete {
+  background: url(../images/delete.png);
+  background-size: 100%;
+  /* background-color: violet; */
   border: none;
   color: white;
   padding: 5px;
   border-radius: 10%;
   height: 35px;
+  width: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btnEditLists {
+  background: url(../images/edit.png);
+  background-size: 100%;
+  /* background-color: violet; */
+  border: none;
+  color: white;
+  padding: 5px;
+  border-radius: 10%;
+  height: 35px;
+  width: 35px;
   margin-left: 5px;
   margin-right: 5px;
 }
