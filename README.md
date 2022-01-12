@@ -31,4 +31,4 @@ Code review written by [Amanda Karlsson](https://github.com/username).
 Tested by the following people:
 
 1. Hanna Rosenberg
-2.  -
+2. Susanne Lam
