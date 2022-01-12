@@ -62,7 +62,8 @@ foreach ($lists as $list) {
                     <div>
                         <h4> <?php echo $task['title']; ?></h4>
                         <?php echo $task['description']; ?><br>
-                        <?php echo $task['deadline']; ?>
+                        <?php echo "Deadline: ";
+                        echo $task['deadline']; ?>
                     </div>
 
 
@@ -129,7 +130,7 @@ foreach ($lists as $list) {
 
 
         <button class="btnAddTask">Add a new task to your list</button>
-        <div class="newTaskDiv hidden">
+        <div class="newTaskDiv">
             <div class="mb-3">
                 <form action="app/tasks/tasks.php" method="post">
                     <label for="title">Add a title to your task</label>

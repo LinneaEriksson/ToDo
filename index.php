@@ -47,7 +47,7 @@ if (isset($_SESSION['user']) === true) {
                         <div>
                             <h4> <?php echo $task['title']; ?></h4>
                             <?php echo $task['description']; ?><br>
-                            <?php echo $task['deadline']; ?>
+                            <?php echo "Deadline: Today!";; ?>
                         </div>
 
 
