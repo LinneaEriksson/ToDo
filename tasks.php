@@ -42,7 +42,7 @@ foreach ($lists as $list) {
     <!-- Shows the lists, edit and delete buttons -->
     <article class="editProfileSection">
         <div class="spaceBetween">
-            <h1> <?= $list["title"] ?></h1>
+            <p class="listTitle"> <?= $list["title"] ?></p>
             <div class="buttonsInLine">
 
                 <button class="btnEditLists"></button>
@@ -90,25 +90,25 @@ foreach ($lists as $list) {
                             <form action="app/tasks/uncomplete.php" method="post">
                                 <input type="hidden" name="completed" value="NULL">
                                 <input type="hidden" name="unCompleteTaskId" value="<?= $task["id"] ?>">
-                                <button type="submit" class="unCompleteTask">This is not done!</button>
+                                <button type="submit" class="unCompleteTask"></button>
                             </form>
                         <?php } else {
                         ?>
                             <form action="app/tasks/complete.php" method="post">
                                 <input type="hidden" name="completed" value="Completed">
                                 <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
-                                <button type="submit" class="completeTask">Complete task!</button>
+                                <button type="submit" class="completeTask"></button>
                             </form>
 
                         <?php
                         }
                         ?>
 
-                        <button class="btnEditTasks">Edit</button>
+                        <button class="btnEditTasks"></button>
 
                         <form action="app/tasks/delete.php" method="post">
                             <input type="hidden" name="deleteTask" value="<?= $task['id'] ?>">
-                            <button type="submit" class="btn btn-primary btnDelete">Delete</button>
+                            <button type="submit" class="btnDelete"></button>
                         </form>
                     </div>
                 </div>

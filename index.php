@@ -34,54 +34,13 @@ if (isset($_SESSION['user']) === true) {
 
 
     if ($tasks) {
-        foreach ($tasks as $task) {
-        }
     ?>
         <article class="editProfileSection">
             <h1>This is what you have ToDo today</h1>
             <?php
-
-            //  THIS DOESN'T WORK, YOU HAVE TO RETHINK THIS PART!!
-            if ($task['completed'] === 'Completed') {
+            foreach ($tasks as $task) {
+                if ($task['completed'] = 'Completed') {
             ?>
-                <div class="tasksCompleted">
-                    <?php
-                    echo "Nothing, you are free!";
-                    ?>
-                </div>
-                <?php
-            } else {
-                foreach ($tasks as $task) :
-                ?>
-                    <div class="tasksUncompleted">
-                        <div>
-                            <h4> <?php echo $task['title']; ?></h4>
-                            <?php echo $task['description']; ?><br>
-                        </div>
-                        <div>
-                            <form action="app/tasks/complete.php" method="post">
-                                <input type="hidden" name="completed" value="Completed">
-                                <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
-                                <button type="submit" class="completeTask">Complete task!</button>
-                            </form>
-                        </div>
-                    </div>
-
-            <?php
-                endforeach;
-            }
-            ?>
-
-            <?php
-
-            if ($task['completed'] === 'Completed') {
-            ?>
-                <h1>Completed tasks with deadline today</h1>
-                <?php
-            }
-            foreach ($tasks as $task) :
-                if ($task['completed'] === 'Completed') {
-                ?>
                     <div class="tasksCompleted">
                         <div>
                             <h4> <?php echo $task['title']; ?></h4>
@@ -92,28 +51,43 @@ if (isset($_SESSION['user']) === true) {
                             <form action="app/tasks/uncomplete.php" method="post">
                                 <input type="hidden" name="completed" value="NULL">
                                 <input type="hidden" name="unCompleteTaskId" value="<?= $task["id"] ?>">
-                                <button type="submit" class="unCompleteTask">This is not done!</button>
+                                <button type="submit" class="unCompleteTask"></button>
                             </form>
                         </div>
                     </div>
-            <?php
 
-                }
-            endforeach; ?>
+                <?php
+                } else {
+                ?>
+                    <div class="tasksUncompleted">
+                        <div>
+                            <h4> <?php echo $task['title']; ?></h4>
+                            <?php echo $task['description']; ?><br>
+                        </div>
+                        <div>
+                            <form action="app/tasks/complete.php" method="post">
+                                <input type="hidden" name="completed" value="Completed">
+                                <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
+                                <button type="submit" class="completeTask"></button>
+                            </form>
+                        </div>
+                    </div>
 
         </article>
-    <?php
-    } else {
-    ?>
-        <article class="editProfileSection">
+<?php
+                }
+            }
+        } else {
+?>
+<article class="editProfileSection">
 
-            <h1>You don't have anything ToDo today!</h1>
-            <p>If you're bored you can always
-                <a href="/tasks.php">add a Todo!</button>
+    <h1>You don't have anything ToDo today!</h1>
+    <p>If you're bored you can always
+        <a href="/tasks.php">add a Todo!</button>
 
-            </p>
-    <?php
+    </p>
+<?php
+        }
     }
-}
 
-require __DIR__ . '/views/footer.php'; ?>
+    require __DIR__ . '/views/footer.php'; ?>

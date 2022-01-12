@@ -46,11 +46,19 @@ a:hover {
   font-weight: bold;
 }
 
-@media screen and (min-width: 1000px) {
+.listTitle {
+  font-size: 25px;
+}
+
+@media screen and (min-width: 500px) {
   h1 {
     font-size: 2rem;
   }
   h2 {
     font-size: 2rem;
+  }
+
+  .listTitle {
+    font-size: 35px;
   }
 }

@@ -17,8 +17,8 @@
 
 .tasks {
   background-color: rgb(237, 238, 235);
-  margin: 10px;
-  padding: 10px;
+
+  padding: 20px;
 }
 
 .tasksCompleted {

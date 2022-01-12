@@ -3,35 +3,49 @@
   border: none;
   color: white;
 }
-.btn:hover {
-  background-color: #a378a3;
-}
 
 .spaceBetween .btnEditlists {
   margin-right: 20px;
 }
 
 .completeTask {
-  background-color: rgb(142, 179, 142);
-  color: white;
+  background: url(../images/unchecked.png);
+  background-size: 100%;
+  /* background-color: violet; */
   border: none;
+  color: white;
   padding: 5px;
+  border-radius: 10%;
+  height: 42px;
+  width: 42px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .unCompleteTask {
-  background-color: rgb(179, 149, 142);
+  background: url(../images/checked.png);
+  background-size: 100%;
+  /* background-color: violet; */
+  border: none;
   color: white;
-  border: none;
-  padding: 5px;
-}
-
-.btnEditTasks {
-  background-color: rgb(255, 255, 255);
-  border: none;
-  color: rgb(0, 0, 0);
   padding: 5px;
   border-radius: 10%;
   height: 35px;
+  width: 35px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btnEditTasks {
+  background: url(../images/edit.png);
+  background-size: 100%;
+  /* background-color: violet; */
+  border: none;
+  color: white;
+  padding: 5px;
+  border-radius: 10%;
+  height: 35px;
+  width: 35px;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -50,6 +64,10 @@
   margin-right: 5px;
 }
 
+.btnDelete:hover {
+  background-color: #af3949;
+}
+
 .btnEditLists {
   background: url(../images/edit.png);
   background-size: 100%;
@@ -64,12 +82,13 @@
   margin-right: 5px;
 }
 
-.addTask {
-  color: rgb(156, 25, 156);
+.btnAddTask {
+  color: var(--accentcolor);
   font-weight: 900;
   font-size: 18px;
   background-color: transparent;
   border: none;
+  margin: 20px;
 }
 
 @media screen and (min-width: 1000px) {
