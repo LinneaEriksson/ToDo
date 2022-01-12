@@ -12,7 +12,7 @@ function fetchTasksWithDeadlineToday($database)
 {
     $date = date('Y-m-d');
 
-    $sql = $database->prepare('SELECT * FROM tasks WHERE user_id = :id AND deadline = :date ORDER BY completed');
+    $sql = $database->prepare('SELECT * FROM tasks WHERE user_id = :id AND deadline = :date ORDER BY completed DESC');
     $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
     $sql->bindParam(':date', $date, PDO::PARAM_STR);
     $sql->execute();

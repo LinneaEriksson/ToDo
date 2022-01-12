@@ -6,14 +6,22 @@ require __DIR__ . '/../autoload.php';
 
 
 
-if (isset($_POST['completeTaskId'], $_POST['completed'])) {
-  $id = trim(filter_var($_POST['completeTaskId'], FILTER_SANITIZE_STRING));
-  $completed = trim(filter_var($_POST['completed'], FILTER_SANITIZE_STRING));
+if (isset($_POST['editTaskTitle'], $_POST['editTaskDescription'], $_POST['deadline'])) {
+  $taskTitle = trim(filter_var($_POST['editTaskTitle']));
+  $taskDescription = trim(filter_var($_POST['editTaskDescription']));
+  $deadline = trim(filter_var($_POST['deadline']));
+  $id = trim(filter_var($_POST['taskId']));
 
-  $sql = $database->prepare("UPDATE tasks SET completed = :complete WHERE id = :id");
-  $sql->bindParam(':complete', $completed, PDO::PARAM_STR);
+  $sql = $database->prepare("UPDATE tasks SET title = :title, description = :description, deadline = :deadline WHERE id = :id");
+  $sql->bindParam(':title', $taskTitle, PDO::PARAM_STR);
+  $sql->bindParam(':description', $taskDescription, PDO::PARAM_STR);
+  $sql->bindParam(':deadline', $deadline, PDO::PARAM_STR);
   $sql->bindParam(':id', $id, PDO::PARAM_INT);
   $sql->execute();
-}
 
-redirect($_SERVER['HTTP_REFERER']);
+
+
+
+
+  redirect($_SERVER['HTTP_REFERER']);
+}

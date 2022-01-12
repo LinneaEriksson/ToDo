@@ -76,20 +76,21 @@ if (isset($_SESSION['user']) === true) {
                             ?>
                         </div>
                     </div>
-                <?php endforeach;
-                ?>
-            <?php
-        } else {
+                </div>
+            <?php endforeach;
             ?>
-                <article class="editProfileSection">
+        <?php
+    } else {
+        ?>
+            <article class="editProfileSection">
 
-                    <h1>You don't have anything ToDo today!</h1>
-                    <p>If you're bored you can always
-                        <a href="/tasks.php">add a Todo!</button>
+                <h1>You don't have anything ToDo today!</h1>
+                <p>If you're bored you can always
+                    <a href="/tasks.php">add a Todo!</button>
 
-                    </p>
-            <?php
-        }
+                </p>
+        <?php
     }
+}
 
-    require __DIR__ . '/views/footer.php'; ?>
+require __DIR__ . '/views/footer.php'; ?>

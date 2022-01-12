@@ -113,6 +113,7 @@ foreach ($lists as $list) {
                     </div>
                 </div>
 
+
                 <!-- edit task -->
 
                 <div class="mb-3">
@@ -123,13 +124,13 @@ foreach ($lists as $list) {
                             <input class="form-control" type="text" name="editTaskTitle" id="editTaskTitle" placeholder="<?= $task["title"] ?>" required>
 
                             <label for="editTaskDescription">Edit your task description</label>
-                            <input class="form-control" type="text" name="editTeditTaskDescriptionask" id="editTaskDescription" placeholder="<?= $task["description"] ?>" required>
+                            <input class="form-control" type="text" name="editTaskDescription" id="editTaskDescription" placeholder="<?= $task["description"] ?>" required>
 
                             <label for="deadline">Add a new deadline to your ToDo</label><br>
                             <input type="date" id="deadline" name="deadline" value="2022-01-01" min="22-01-01" max="3000-01-01">
                             <br>
                             <input type="hidden" name="taskId" value="<?= $task["id"] ?>">
-
+                            <br>
                             <button type="submit" class="btn btn-primary">Edit task</button>
                         </form>
                     </div>
@@ -142,31 +143,31 @@ foreach ($lists as $list) {
 
 
         <button class="btnAddTask">Add a new task to your list</button>
-        <div class="newTaskDiv">
+        <div class="newTaskDiv hidden">
             <div class="mb-3">
                 <form action="app/tasks/tasks.php" method="post">
-                    <label for="title">Add a title to your ToDo</label>
+                    <label for="title">Add a title to your task</label>
                     <input class="form-control" type="title" name="title" id="title" required>
             </div>
 
             <div class="mb-3">
-                <label for="todo">Add a task to your list here.</label>
+                <label for="todo">Add a task description</label>
                 <input class="form-control" type="todo" name="todo" id="todo" required>
             </div>
 
             <div class="mb-3">
-                <label for="deadline">Add a deadline to your ToDo</label><br>
+                <label for="deadline">Add a deadline to your task</label><br>
                 <input type="date" id="deadline" name="deadline" value="2022-01-01" min="22-01-01" max="3000-01-01">
             </div>
 
             <div class="mb-3">
                 <input type="checkbox" name="completed" value="Completed">
-                <label for="completed">The task is completed</label>
+                <label for="completed">The task is already completed</label>
             </div>
 
             <input type="hidden" name="id" value="<?= $list["id"] ?>">
 
-            <button type="submit" class="btn btn-primary">Add ToDo</button>
+            <button type="submit" class="btn btn-primary">Add task</button>
             </form>
         </div>
     </article>
