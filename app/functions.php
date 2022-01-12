@@ -21,3 +21,29 @@ function fetchTasksWithDeadlineToday($database)
 
     return $tasks;
 }
+
+function fetchAllLists($database)
+{
+    $sql = $database->prepare('SELECT * FROM lists WHERE user_id = :id ORDER BY id desc');
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+    $sql->execute();
+
+    $lists = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+    return $lists;
+}
+
+
+function fetchAllTasksWithinLists($database, $list)
+{
+    $listId = $list["id"];
+    $sql = $database->prepare('SELECT tasks.* FROM tasks INNER JOIN
+        lists on tasks.list_id = lists.id WHERE lists.user_id = :id AND list_id = :listId ORDER BY completed');
+    $sql->bindParam(':id', $_SESSION['user']['id'], PDO::PARAM_INT);
+    $sql->bindParam(':listId', $listId, PDO::PARAM_INT);
+    $sql->execute();
+
+    $tasks = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+    return $tasks;
+}

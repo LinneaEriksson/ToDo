@@ -35,6 +35,13 @@
   color: rgb(208, 221, 134);
 }
 
+.profilePictureNavigation {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  display: flex;
+}
+
 @media screen and (min-width: 1000px) {
   /* styling for TODO LOGO */
   .navbar-brand {
@@ -57,5 +64,11 @@
   /* Styling for links in bar */
   .nav-link {
     font-size: 2rem;
+  }
+
+  .profilePictureNavigation {
+    width: 125px;
+    height: 125px;
+    margin-left: 50px;
   }
 }
