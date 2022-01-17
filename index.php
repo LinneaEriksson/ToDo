@@ -13,8 +13,7 @@ unset($_SESSION['message']);
 <?php
 
 
-if (isset($_SESSION['user']) === false) {
-?>
+if (isset($_SESSION['user']) === false) { ?>
     <article class="editProfileSection">
 
         <h1><?php echo $config['title']; ?></h1>
@@ -33,21 +32,16 @@ if (isset($_SESSION['user']) === true) {
     $tasks = fetchTasksWithDeadlineToday($database);
 
 
-    if ($tasks) {
-    ?>
+    if ($tasks) { ?>
         <article class="editProfileSection">
             <h1>This is what you have ToDo today</h1>
-            <?php
-            foreach ($tasks as $task) :
-
-
-            ?>
+            <?php foreach ($tasks as $task) : ?>
                 <div class="tasks">
                     <div class="spaceBetween">
                         <div>
                             <h4> <?php echo $task['title']; ?></h4>
                             <?php echo $task['description']; ?><br>
-                            <?php echo "Deadline: Today!";; ?>
+                            <?php echo "Deadline: Today!"; ?>
                         </div>
 
 
@@ -56,23 +50,20 @@ if (isset($_SESSION['user']) === true) {
                         <div class="buttonsInLine">
 
                             <?php
-                            if ($task['completed'] === 'Completed') {
-                            ?>
+                            if ($task['completed'] === 'Completed') { ?>
                                 <form action="app/tasks/uncomplete.php" method="post">
                                     <input type="hidden" name="completed" value="NULL">
                                     <input type="hidden" name="unCompleteTaskId" value="<?= $task["id"] ?>">
                                     <button type="submit" class="unCompleteTask"></button>
                                 </form>
-                            <?php } else {
-                            ?>
+                            <?php } else { ?>
                                 <form action="app/tasks/complete.php" method="post">
                                     <input type="hidden" name="completed" value="Completed">
                                     <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
                                     <button type="submit" class="completeTask"></button>
                                 </form>
 
-                            <?php
-                            }
+                            <?php }
                             ?>
                         </div>
                     </div>
