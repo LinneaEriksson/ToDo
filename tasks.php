@@ -47,10 +47,7 @@ $lists = fetchAllLists($database);
         <!-- Shows tasks -->
 
 
-        <?php foreach ($tasks as $task) :
-
-
-        ?>
+        <?php foreach ($tasks as $task) : ?>
             <div class="tasks">
                 <div class="spaceBetween">
                     <div>
@@ -66,24 +63,20 @@ $lists = fetchAllLists($database);
                     <div class="mobileButtonsInLine">
 
                         <?php
-                        if ($task['completed'] === 'Completed') {
-                        ?>
+                        if ($task['completed'] === 'Completed') { ?>
                             <form action="app/tasks/uncomplete.php" method="post">
                                 <input type="hidden" name="completed" value="NULL">
                                 <input type="hidden" name="unCompleteTaskId" value="<?= $task["id"] ?>">
                                 <button type="submit" class="unCompleteTask"></button>
                             </form>
-                        <?php } else {
-                        ?>
+                        <?php } else { ?>
                             <form action="app/tasks/complete.php" method="post">
                                 <input type="hidden" name="completed" value="Completed">
                                 <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
                                 <button type="submit" class="completeTask"></button>
                             </form>
 
-                        <?php
-                        }
-                        ?>
+                        <?php }  ?>
 
                         <button class="btnEditTasks"></button>
 
@@ -116,9 +109,8 @@ $lists = fetchAllLists($database);
                         </form>
                     </div>
                 </div>
-            </div><?php
-
-                endforeach; ?>
+            </div>
+        <?php endforeach; ?>
 
         <!-- add a new task to the list -->
 
@@ -153,6 +145,5 @@ $lists = fetchAllLists($database);
         </div>
     </article>
 <?php
-
 }
 require __DIR__ . '/views/footer.php'; ?>
