@@ -13,26 +13,20 @@ $lists = fetchAllLists($database);
         <div class="mb-3">
             <label for="list">Add a list within wich you can create tasks.</label>
             <input class="form-control" type="list" name="list" id="list" required>
-
         </div>
 
         <button type="submit" class="btn btn-primary">Add list</button>
     </form>
 </article>
 
-<?php
-foreach ($lists as $list) {
-
-    $tasks = fetchAllTasksWithinLists($database, $list);
-?>
+<?php foreach ($lists as $list) {
+    $tasks = fetchAllTasksWithinLists($database, $list); ?>
     <!-- Shows the lists, edit and delete buttons -->
     <article class="editProfileSection">
         <div class="spaceBetween">
             <p class="listTitle"> <?= $list["title"] ?></p>
             <div class="buttonsInLine">
-
                 <button class="btnEditLists"></button>
-
                 <form action="app/lists/delete.php" method="post">
                     <input type="hidden" name="deleteList" value="<?= $list["id"] ?>">
                     <button type="submit" class="btnDelete"></button>
