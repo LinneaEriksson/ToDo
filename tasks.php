@@ -36,6 +36,11 @@ $lists = fetchAllLists($database);
                 </form>
             </div>
         </div>
+        <form action="app/tasks/completeAll.php" method="post">
+            <input type="hidden" name="completed" value="Completed">
+            <input type="hidden" name="complete-all" value="<?= $list["id"] ?>">
+            <button type="submit">mark all tasks as completed</button>
+        </form>
         <!-- edit list -->
         <form action="app/lists/edit.php" method="post">
             <div class="mb-3">
@@ -83,7 +88,6 @@ $lists = fetchAllLists($database);
                                 <input type="hidden" name="completeTaskId" value="<?= $task['id'] ?>">
                                 <button type="submit" class="completeTask"></button>
                             </form>
-
                         <?php
                         }
                         ?>
