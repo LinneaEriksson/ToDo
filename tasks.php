@@ -25,6 +25,9 @@ $lists = fetchAllLists($database);
     <article class="editProfileSection">
         <div class="spaceBetween">
             <p class="listTitle"> <?= $list["title"] ?></p>
+
+            <!-- MARK ALL TASKS AS DONE  -->
+
             <div class="buttonsInLine">
                 <button class="btnEditLists"></button>
                 <form action="app/lists/delete.php" method="post">

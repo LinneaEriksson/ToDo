@@ -33,6 +33,9 @@ unset($_SESSION['message']);
 
         <button type="submit" class="btn btn-primary">Login</button>
     </form>
+
+    <!-- RESET PASSWORD  -->
+    <a href="forgot-password.php">Forgot your password?</a>
 </article>
 
 <article class="editProfileSection">

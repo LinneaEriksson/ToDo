@@ -1,0 +1,4 @@
+Funtioner jag vill lägga till i projektet:
+
+Radera konto tillsammans med lists och tasks.
+
