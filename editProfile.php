@@ -25,8 +25,10 @@ require __DIR__ . '/app/loadProfilepic.php';
 
     <div class="centered">
         <?php
+
         if (isset($profileImg)) {
         ?>
+
             <img src="app/database/userimages/<?= $profileImg ?>" class="profilePicture" alt="Your profile picture">
         <?php } ?>
     </div>
