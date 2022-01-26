@@ -52,6 +52,7 @@ $lists = fetchAllLists($database);
                 </div>
             </div>
         </form>
+
         <!-- Shows tasks -->
 
 
@@ -154,7 +155,8 @@ $lists = fetchAllLists($database);
             </form>
         </div>
     </article>
-<?php 
+<?php
+}
 
 
 require __DIR__ . '/views/footer.php'; ?>
