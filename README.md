@@ -32,3 +32,8 @@ Tested by the following people:
 
 1. Hanna Rosenberg
 2. Susanne Lam
+
+# Wunderlist+
+
+Done by Sophie Wulf
+link to pull request: https://github.com/LinneaEriksson/ToDo/pulls?q=is%3Apr+is%3Aclosed
