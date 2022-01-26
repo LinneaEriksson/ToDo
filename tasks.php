@@ -25,6 +25,9 @@ $lists = fetchAllLists($database);
     <article class="editProfileSection">
         <div class="spaceBetween">
             <p class="listTitle"> <?= $list["title"] ?></p>
+
+            <!-- MARK ALL TASKS AS DONE  -->
+
             <div class="buttonsInLine">
                 <button class="btnEditLists"></button>
                 <form action="app/lists/delete.php" method="post">
@@ -33,6 +36,11 @@ $lists = fetchAllLists($database);
                 </form>
             </div>
         </div>
+        <form action="app/tasks/completeAll.php" method="post">
+            <input type="hidden" name="completed" value="Completed">
+            <input type="hidden" name="complete-all" value="<?= $list["id"] ?>">
+            <button type="submit">mark all tasks as completed</button>
+        </form>
         <!-- edit list -->
         <form action="app/lists/edit.php" method="post">
             <div class="mb-3">
@@ -76,7 +84,9 @@ $lists = fetchAllLists($database);
                                 <button type="submit" class="completeTask"></button>
                             </form>
 
-                        <?php }  ?>
+                        <?php
+                        }
+                        ?>
 
                         <button class="btnEditTasks"></button>
 
@@ -144,6 +154,7 @@ $lists = fetchAllLists($database);
             </form>
         </div>
     </article>
-<?php }
+<?php 
+
 
 require __DIR__ . '/views/footer.php'; ?>

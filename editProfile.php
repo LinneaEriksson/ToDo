@@ -25,7 +25,10 @@ require __DIR__ . '/app/loadProfilepic.php';
 
     <div class="centered">
         <?php
-        if (isset($profileImg)) { ?>
+
+        if (isset($profileImg)) {
+        ?>
+
             <img src="app/database/userimages/<?= $profileImg ?>" class="profilePicture" alt="Your profile picture">
         <?php } ?>
     </div>
@@ -55,7 +58,12 @@ require __DIR__ . '/app/loadProfilepic.php';
 
         <button type="submit" class="btn">Change password</button>
     </form>
+
 </article>
+<form action="app/users/delete.php" method="post">
+    <input type="hidden" id="delete_user" name="delete_user" value="<?= $_SESSION['user']['id'] ?>">
+    <button type="submit">Delete profile including all tasks and lists</button>
+</form>
 
 
 <?php
