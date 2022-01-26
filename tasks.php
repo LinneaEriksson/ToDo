@@ -85,9 +85,7 @@ $lists = fetchAllLists($database);
                                 <button type="submit" class="completeTask"></button>
                             </form>
 
-                        <?php
-                        }
-                        ?>
+                        <?php } ?>
 
                         <button class="btnEditTasks"></button>
 
@@ -155,8 +153,7 @@ $lists = fetchAllLists($database);
             </form>
         </div>
     </article>
-<?php
-}
+<?php }
 
 
 require __DIR__ . '/views/footer.php'; ?>
